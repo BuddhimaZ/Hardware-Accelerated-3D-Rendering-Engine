@@ -66,15 +66,15 @@ StyleCopReport.xml
 *.ilk
 *.meta
 *.obj
-!"Hardware Accelerated 3D Rendering Engine/Models/*.obj"
-!"Hardware Accelerated 3D Rendering Engine/ThirdParty/bins/Debug/x64/*.dll"
-!"Hardware Accelerated 3D Rendering Engine/ThirdParty/bins/Debug/x86/*.dll"
-!"Hardware Accelerated 3D Rendering Engine/ThirdParty/bins/Release/x64/*.dll"
-!"Hardware Accelerated 3D Rendering Engine/ThirdParty/bins/Release/x86/*.dll"
-!"Hardware Accelerated 3D Rendering Engine/ThirdParty/libs/Debug/x64/*.lib"
-!"Hardware Accelerated 3D Rendering Engine/ThirdParty/libs/Debug/x86/*.lib"
-!"Hardware Accelerated 3D Rendering Engine/ThirdParty/libs/Release/x64/*.lib"
-!"Hardware Accelerated 3D Rendering Engine/ThirdParty/libs/Release/x86/*.lib"
+!"/Hardware Accelerated 3D Rendering Engine/Models/*.obj"
+!"/Hardware Accelerated 3D Rendering Engine/ThirdParty/bins/Debug/x64/*.dll"
+!"/Hardware Accelerated 3D Rendering Engine/ThirdParty/bins/Debug/x86/*.dll"
+!"/Hardware Accelerated 3D Rendering Engine/ThirdParty/bins/Release/x64/*.dll"
+!"/Hardware Accelerated 3D Rendering Engine/ThirdParty/bins/Release/x86/*.dll"
+!"/Hardware Accelerated 3D Rendering Engine/ThirdParty/libs/Debug/x64/*.lib"
+!"/Hardware Accelerated 3D Rendering Engine/ThirdParty/libs/Debug/x86/*.lib"
+!"/Hardware Accelerated 3D Rendering Engine/ThirdParty/libs/Release/x64/*.lib"
+!"/Hardware Accelerated 3D Rendering Engine/ThirdParty/libs/Release/x86/*.lib"
 *.iobj
 *.pch
 *.pdb
@@ -347,3 +347,8 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Hardware Accelerated 3D Rendering Engine/assimp-vc142-mt.dll
+/Hardware Accelerated 3D Rendering Engine/assimp-vc142-mt.lib
+/Hardware Accelerated 3D Rendering Engine/bz2.dll
+/Hardware Accelerated 3D Rendering Engine/libpng16.dll
+/Hardware Accelerated 3D Rendering Engine/zlib1.dll
