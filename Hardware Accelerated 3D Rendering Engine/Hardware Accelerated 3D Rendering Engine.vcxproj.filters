@@ -105,6 +105,9 @@
     <ClCompile Include="src\DrawableSystem\Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXGIInfoManager.h">
@@ -449,6 +452,9 @@
     <ClInclude Include="ThirdParty\includes\assimp\ZipArchiveIOSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="src\Shaders\BoxPixelShader.hlsl" />
@@ -461,13 +467,7 @@
     <FxCompile Include="src\Shaders\MeshPS.hlsl" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Textures\BoxTex.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="Models\Skull.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Models\Skull.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
@@ -508,22 +508,18 @@
     <None Include="ThirdParty\bins\Debug\x86\jpeg62.dll" />
     <None Include="ThirdParty\bins\Debug\x86\libpng16d.dll" />
     <None Include="ThirdParty\bins\Debug\x86\zlibd1.dll" />
-    <None Include="ThirdParty\bins\Release\x64\assimp-vc142-mt.dll" />
     <None Include="ThirdParty\bins\Release\x64\bz2.dll" />
     <None Include="ThirdParty\bins\Release\x64\Irrlicht.dll" />
     <None Include="ThirdParty\bins\Release\x64\jpeg62.dll" />
     <None Include="ThirdParty\bins\Release\x64\libpng16.dll" />
     <None Include="ThirdParty\bins\Release\x64\zlib1.dll" />
-    <None Include="ThirdParty\bins\Release\x86\assimp-vc142-mt.dll" />
     <None Include="ThirdParty\bins\Release\x86\bz2.dll" />
     <None Include="ThirdParty\bins\Release\x86\Irrlicht.dll" />
     <None Include="ThirdParty\bins\Release\x86\jpeg62.dll" />
     <None Include="ThirdParty\bins\Release\x86\libpng16.dll" />
     <None Include="ThirdParty\bins\Release\x86\zlib1.dll" />
-    <None Include="Models\Skull.blend" />
-    <None Include="Models\Skull.blend1" />
-    <None Include="Models\Skull.mtl" />
-    <None Include="Models\Skull2.mtl" />
+    <None Include="ThirdParty\bins\Release\x64\assimp-vc142-mtd.dll" />
+    <None Include="ThirdParty\bins\Release\x86\assimp-vc142-mtd.dll" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="ThirdParty\libs\Debug\x64\assimp-vc142-mtd.lib" />
