@@ -7,6 +7,7 @@
 #include "DrawableSystem/BoxWithTexture.h"
 #include "DrawableSystem/Skull.h"
 #include "DrawableSystem/Mesh.h"
+#include "Camera.h"
 
 //Standard Includes
 #include <vector>
@@ -23,6 +24,7 @@ private:
 
 private:
 	std::unordered_map<std::string, Drawable*> m_drawables;
+	Camera* m_pCamera = nullptr;
 };
 
 #endif // !APPLICATION_H

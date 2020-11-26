@@ -6,8 +6,11 @@
 bool Application::OnStart() {
 	using namespace DirectX;
 
+	//Initialize the camera
+	m_pCamera = new Camera();
+
 	//Set the projection matrix of the renderer
-	GetRenderer()->SetProjectionMatrix(XMMatrixPerspectiveFovLH(90.0f, (float)GetWidth() / (float)GetHeight(), 0.5f, 100.0f));
+	GetRenderer()->SetProjectionMatrix(XMMatrixPerspectiveLH(1.0f, (float)GetHeight() / (float)GetWidth(), 0.5f, 100.0f));
 
 	//Create and Bind the viewports to the pipeline
 	D3D11_VIEWPORT viewports[] = { {0.0f, 0.0f, (FLOAT)GetWidth(), (FLOAT)GetHeight(), 0.0f, 1.0f} };
@@ -19,9 +22,10 @@ bool Application::OnStart() {
 
 	m_drawables.insert({ "Skull", new Mesh(
 		GetRenderer(),
-		std::string("Models/Skull.obj"),
+		std::string("Models/12140_Skull_v3_L2.obj"),
 		std::wstring(L"Models/Skull.jpg"),
-		XMFLOAT3(0.0f, 0.0f, 40.0f)
+		m_pCamera,
+		XMFLOAT3(0.0f, -10.0f, 50.0f)
 	) });
 
 	m_drawables.insert(
@@ -30,22 +34,75 @@ bool Application::OnStart() {
 		GetRenderer(),
 		std::string("Models/Cube.obj"),
 		std::wstring(L"Models/Cube.png"),
-		XMFLOAT3(5.0f, 0.0f, 4.0f)
+		m_pCamera,
+		XMFLOAT3(5.0f, 0.0f, 7.0f),
+		XMFLOAT3(0.0f, -XM_PIDIV2, XM_PI)
 	) });
+
+	//m_drawables.insert(
+	//	{ "Knight",
+	//	new Mesh(
+	//	GetRenderer(),
+	//	std::string("Models/knight.obj"),
+	//	std::wstring(L"Models/knight.jpg"),
+	//	m_pCamera,
+	//	XMFLOAT3(5.0f, 0.0f, 15.0f)
+	//) });
 
 	return true;
 }
 
 bool Application::OnUpdate(float dt) {
+	using namespace DirectX;
+	
 	const float fRotatingSpeed = 1.0f;
+
+	if (Input.GetKey(KB_KEY::W).bHeld) {
+		m_pCamera->TranslateRelCamera(XMFLOAT3(0.0f, 0.0f, 1.0f), dt);
+	}
+
+	if (Input.GetKey(KB_KEY::S).bHeld) {
+		m_pCamera->TranslateRelCamera(XMFLOAT3(0.0f, 0.0f, -1.0f), dt);
+	}
+
+	if (Input.GetKey(KB_KEY::A).bHeld) {
+		m_pCamera->TranslateRelCamera(XMFLOAT3(-1.0f, 0.0f, 0.0f), dt);
+	}
+
+	if (Input.GetKey(KB_KEY::D).bHeld) {
+		m_pCamera->TranslateRelCamera(XMFLOAT3(1.0f, 0.0f, 0.0f), dt);
+	}
+	if (Input.GetKey(KB_KEY::Q).bHeld) {
+		m_pCamera->TranslateRelCamera(XMFLOAT3(0.0f, 1.0f, 0.0f), dt);
+	}
+
+	if (Input.GetKey(KB_KEY::E).bHeld) {
+		m_pCamera->TranslateRelCamera(XMFLOAT3(0.0f, -1.0f, 0.0f), dt);
+	}
+
+	if (Input.GetKey(KB_KEY::I).bHeld) {
+		m_pCamera->RotateCamera(XMFLOAT3(-1.0f, 0.0f, 0.0f), dt);
+	}
+
+	if (Input.GetKey(KB_KEY::K).bHeld) {
+		m_pCamera->RotateCamera(XMFLOAT3(1.0f, 0.0f, 0.0f), dt);
+	}
+
+	if (Input.GetKey(KB_KEY::J).bHeld) {
+		m_pCamera->RotateCamera(XMFLOAT3(0.0f, -1.0f, 0.0f), dt);
+	}
+
+	if (Input.GetKey(KB_KEY::L).bHeld) {
+		m_pCamera->RotateCamera(XMFLOAT3(0.0f, 1.0f, 0.0f), dt);
+	}
 
 	Mesh* pBox = reinterpret_cast<Mesh*>(m_drawables["Cube"]);
 	Mesh* pSkull = reinterpret_cast<Mesh*>(m_drawables["Skull"]);
 
-	pSkull->GetRotation().y += fRotatingSpeed * dt;
+	//pSkull->GetRotation().y += fRotatingSpeed * dt;
 
-	pBox->GetRotation().x += fRotatingSpeed * dt;
-	pBox->GetRotation().z += fRotatingSpeed * dt;
+	//pBox->GetRotation().x += fRotatingSpeed * dt;
+	//pBox->GetRotation().z += fRotatingSpeed * dt;
 
 
 	for (const std::pair<std::string, Drawable*>& drawablePair : m_drawables)
