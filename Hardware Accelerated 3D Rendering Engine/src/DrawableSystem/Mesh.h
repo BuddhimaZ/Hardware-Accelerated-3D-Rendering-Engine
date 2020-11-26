@@ -3,6 +3,7 @@
 
 //Local Includes
 #include "Drawable.h"
+#include "../Camera.h"
 
 //DirectX Includes
 #include <DirectXMath.h>
@@ -16,10 +17,12 @@ private:
 		DirectX::XMFLOAT2 uv;
 	};
 public:
-	Mesh(const Renderer* pRenderer, const std::string& objfile, 
-		const std::wstring& texture, 
+	Mesh(const Renderer* pRenderer, const std::string& objfile,
+		const std::wstring& texture,
+		const Camera* pCamera,
 		const DirectX::XMFLOAT3& position = DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f),
 		const DirectX::XMFLOAT3& rotation = DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f)
+	
 		);
 
 	const void SetPosition(const DirectX::XMFLOAT3& Position);
@@ -31,6 +34,7 @@ public:
 private:
 	DirectX::XMFLOAT3 m_position = DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f);
 	DirectX::XMFLOAT3 m_rotation = DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f);
+	const Camera* m_pCamera = nullptr;
 };
 
 #endif // !MESH_H

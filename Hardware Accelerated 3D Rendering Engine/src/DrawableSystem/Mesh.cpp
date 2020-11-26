@@ -1,6 +1,7 @@
 #include "Mesh.h"
 
 //Local Includes
+
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
@@ -8,17 +9,24 @@
 //Standard Includes
 #include <cstdint>
 
+#if defined(DEBUG) || defined(_DEBUG)
+#pragma comment(lib,"assimp-vc142-mtd.lib")
+#else
 #pragma comment(lib, "assimp-vc142-mt.lib")
+#endif
 
 Mesh::Mesh(
 	const Renderer* pRenderer, 
 	const std::string& objfile, 
 	const std::wstring& texture, 
+	const Camera* pCamera,
 	const DirectX::XMFLOAT3& position, 
 	const DirectX::XMFLOAT3& rotation
+
 ) 
 	: 
 	Drawable(pRenderer), 
+	m_pCamera(pCamera),
 	m_position(position), 
 	m_rotation(rotation)
 {
@@ -100,5 +108,5 @@ const void Mesh::SetRotation(const DirectX::XMFLOAT3& Rotation)
 const DirectX::XMMATRIX Mesh::GetTransform() const
 {
 	using namespace DirectX;
-	return XMMatrixRotationRollPitchYaw(m_rotation.x, m_rotation.y, m_rotation.z) * XMMatrixTranslation(m_position.x, m_position.y, m_position.z);
+	return XMMatrixRotationRollPitchYaw(m_rotation.x, m_rotation.y, m_rotation.z) * XMMatrixTranslation(m_position.x, m_position.y, m_position.z) * m_pCamera->GetTransform();
 }
