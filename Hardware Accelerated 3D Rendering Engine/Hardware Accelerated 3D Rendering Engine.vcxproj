@@ -111,8 +111,6 @@
       <Command>XCOPY "$(OutDir)Shaders" "$(ProjectDir)Shaders\" /Y /F
 XCOPY "$(ProjectDir)Textures" "$(OutDir)Textures\" /Y /F
 XCOPY "$(ProjectDir)Models" "$(OutDir)Models\" /Y /F
-XCOPY "$(ProjectDir)ThirdParty\libs\$(Configuration)\x86" "$(OutDir)" /Y /F
-XCOPY "$(ProjectDir)ThirdParty\libs\$(Configuration)\x86" "$(ProjectDir)" /Y /F
 XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x86" "$(OutDir)" /Y /F
 XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x86" "$(ProjectDir)" /Y /F</Command>
     </PostBuildEvent>
@@ -141,8 +139,6 @@ XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x86" "$(ProjectDir)" /Y /F<
       <Command>XCOPY "$(OutDir)Shaders" "$(ProjectDir)Shaders\" /Y /F
 XCOPY "$(ProjectDir)Textures" "$(OutDir)Textures\" /Y /F
 XCOPY "$(ProjectDir)Models" "$(OutDir)Models\" /Y /F
-XCOPY "$(ProjectDir)ThirdParty\libs\$(Configuration)\x86" "$(OutDir)" /Y /F
-XCOPY "$(ProjectDir)ThirdParty\libs\$(Configuration)\x86" "$(ProjectDir)" /Y /F
 XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x86" "$(OutDir)" /Y /F
 XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x86" "$(ProjectDir)" /Y /F</Command>
     </PostBuildEvent>
@@ -167,8 +163,6 @@ XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x86" "$(ProjectDir)" /Y /F<
       <Command>XCOPY "$(OutDir)Shaders" "$(ProjectDir)Shaders\" /Y /F
 XCOPY "$(ProjectDir)Textures" "$(OutDir)Textures\" /Y /F
 XCOPY "$(ProjectDir)Models" "$(OutDir)Models\" /Y /F
-XCOPY "$(ProjectDir)ThirdParty\libs\$(Configuration)\x64" "$(OutDir)" /Y /F
-XCOPY "$(ProjectDir)ThirdParty\libs\$(Configuration)\x64" "$(ProjectDir)" /Y /F
 XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x64" "$(OutDir)" /Y /F
 XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x64" "$(ProjectDir)" /Y /F</Command>
     </PostBuildEvent>
@@ -197,8 +191,6 @@ XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x64" "$(ProjectDir)" /Y /F<
       <Command>XCOPY "$(OutDir)Shaders" "$(ProjectDir)Shaders\" /Y /F
 XCOPY "$(ProjectDir)Textures" "$(OutDir)Textures\" /Y /F
 XCOPY "$(ProjectDir)Models" "$(OutDir)Models\" /Y /F
-XCOPY "$(ProjectDir)ThirdParty\libs\$(Configuration)\x64" "$(OutDir)" /Y /F
-XCOPY "$(ProjectDir)ThirdParty\libs\$(Configuration)\x64" "$(ProjectDir)" /Y /F
 XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x64" "$(OutDir)" /Y /F
 XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x64" "$(ProjectDir)" /Y /F</Command>
     </PostBuildEvent>
@@ -215,6 +207,7 @@ XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x64" "$(ProjectDir)" /Y /F<
     <ClCompile Include="src\BindableSystem\TransformVSCBuf.cpp" />
     <ClCompile Include="src\BindableSystem\VertexBuffer.cpp" />
     <ClCompile Include="src\BindableSystem\VertexShader.cpp" />
+    <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\D3DIncludes.cpp" />
     <ClCompile Include="src\DrawableSystem\Box.cpp" />
     <ClCompile Include="src\DrawableSystem\BoxWithTexture.cpp" />
@@ -252,6 +245,7 @@ XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x64" "$(ProjectDir)" /Y /F<
     <ClInclude Include="src\BindableSystem\VertexShader.h" />
     <ClInclude Include="src\BindableSystem\VSConstantBuffer.h" />
     <ClInclude Include="src\BindableTesting.h" />
+    <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\D3DIncludes.h" />
     <ClInclude Include="src\DrawableSystem\Box.h" />
     <ClInclude Include="src\DrawableSystem\BoxWithTexture.h" />
@@ -407,14 +401,8 @@ XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x64" "$(ProjectDir)" /Y /F<
   </ItemGroup>
   <ItemGroup>
     <Image Include="Models\Skull.jpg" />
-    <Image Include="Models\Skull.png" />
-    <Image Include="Textures\BoxTex.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Models\Skull.blend" />
-    <None Include="Models\Skull.blend1" />
-    <None Include="Models\Skull.mtl" />
-    <None Include="Models\Skull2.mtl" />
     <None Include="ThirdParty\bins\Debug\x64\assimp-vc142-mtd.dll" />
     <None Include="ThirdParty\bins\Debug\x64\bz2d.dll" />
     <None Include="ThirdParty\bins\Debug\x64\Irrlicht.dll" />
@@ -427,13 +415,13 @@ XCOPY "$(ProjectDir)ThirdParty\bins\$(Configuration)\x64" "$(ProjectDir)" /Y /F<
     <None Include="ThirdParty\bins\Debug\x86\jpeg62.dll" />
     <None Include="ThirdParty\bins\Debug\x86\libpng16d.dll" />
     <None Include="ThirdParty\bins\Debug\x86\zlibd1.dll" />
-    <None Include="ThirdParty\bins\Release\x64\assimp-vc142-mt.dll" />
+    <None Include="ThirdParty\bins\Release\x64\assimp-vc142-mtd.dll" />
     <None Include="ThirdParty\bins\Release\x64\bz2.dll" />
     <None Include="ThirdParty\bins\Release\x64\Irrlicht.dll" />
     <None Include="ThirdParty\bins\Release\x64\jpeg62.dll" />
     <None Include="ThirdParty\bins\Release\x64\libpng16.dll" />
     <None Include="ThirdParty\bins\Release\x64\zlib1.dll" />
-    <None Include="ThirdParty\bins\Release\x86\assimp-vc142-mt.dll" />
+    <None Include="ThirdParty\bins\Release\x86\assimp-vc142-mtd.dll" />
     <None Include="ThirdParty\bins\Release\x86\bz2.dll" />
     <None Include="ThirdParty\bins\Release\x86\Irrlicht.dll" />
     <None Include="ThirdParty\bins\Release\x86\jpeg62.dll" />
