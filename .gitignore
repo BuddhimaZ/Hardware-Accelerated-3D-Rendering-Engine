@@ -347,8 +347,3 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-/Hardware Accelerated 3D Rendering Engine/assimp-vc142-mt.dll
-/Hardware Accelerated 3D Rendering Engine/assimp-vc142-mt.lib
-/Hardware Accelerated 3D Rendering Engine/bz2.dll
-/Hardware Accelerated 3D Rendering Engine/libpng16.dll
-/Hardware Accelerated 3D Rendering Engine/zlib1.dll
