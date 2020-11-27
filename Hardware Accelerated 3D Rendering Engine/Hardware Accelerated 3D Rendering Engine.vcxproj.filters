@@ -522,9 +522,9 @@
     <None Include="ThirdParty\bins\Release\x86\assimp-vc142-mtd.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="ThirdParty\libs\Debug\x64\assimp-vc142-mtd.lib" />
     <Library Include="ThirdParty\libs\Debug\x86\assimp-vc142-mtd.lib" />
     <Library Include="ThirdParty\libs\Release\x64\assimp-vc142-mt.lib" />
     <Library Include="ThirdParty\libs\Release\x86\assimp-vc142-mt.lib" />
+    <Library Include="ThirdParty\libs\Debug\x64\assimp-vc142-mtd.lib" />
   </ItemGroup>
 </Project>
