@@ -1,6 +1,6 @@
 #include "Skull.h"
 
-#include "../../ThirdParty/WaveFrontReader.h"
+#include <WaveFrontReader.h>
 
 #include <fstream>
 #include <iterator>
