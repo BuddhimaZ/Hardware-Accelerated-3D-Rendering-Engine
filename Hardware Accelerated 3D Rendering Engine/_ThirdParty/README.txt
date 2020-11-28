@@ -1,0 +1,1 @@
+This directory contains all the .dlls and static libraries of the third party dependacies of the project
