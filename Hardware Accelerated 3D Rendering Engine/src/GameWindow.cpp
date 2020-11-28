@@ -113,6 +113,18 @@ LRESULT GameWindow::WindowClass::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LP
 	//Get the pointer to GameWindow class associated with hWnd
 	GameWindow* pGameWindow = (GameWindow*)GetWindowLongPtr(hWnd, GWLP_USERDATA);
 
+	LRESULT nRetWndProc = 0;
+	bool bHasValueWndProc = false;
+
+	for (const auto& pfWndProc : pGameWindow->m_vecUserDefinedPreWndProcs) {
+		const std::optional<LRESULT> userDefinedWndProc = pfWndProc(hWnd, uMsg, wParam, lParam);
+		if (userDefinedWndProc) {
+			nRetWndProc |= userDefinedWndProc.value(); bHasValueWndProc |= userDefinedWndProc.has_value();
+		}
+	}
+
+	if (bHasValueWndProc) return nRetWndProc;
+
 	switch (uMsg)
 	{
 	case WM_CREATE: {
@@ -196,11 +208,17 @@ LRESULT GameWindow::WindowClass::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LP
 	
 	}
 
-	if (pGameWindow->m_pUserDefinedWindowProc != nullptr) {
-		std::optional<LRESULT> userDefinedWndProc = pGameWindow->m_pUserDefinedWindowProc(hWnd, uMsg, wParam, lParam);
-		if (userDefinedWndProc.has_value())
-			return userDefinedWndProc.value();
+	nRetWndProc = 0;
+	bHasValueWndProc = false;
+
+	for (const auto& pfWndProc : pGameWindow->m_vecUserDefinedPreWndProcs) {
+		const std::optional<LRESULT> userDefinedWndProc = pfWndProc(hWnd, uMsg, wParam, lParam);
+		if (userDefinedWndProc) {
+			nRetWndProc |= userDefinedWndProc.value(); bHasValueWndProc |= userDefinedWndProc.has_value();
+		}
 	}
+
+	if (bHasValueWndProc) return nRetWndProc;
 
 	return DefWindowProc(hWnd, uMsg, wParam, lParam);
 }
@@ -213,7 +231,6 @@ LRESULT GameWindow::WindowClass::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LP
 
 DWORD GameWindow::m_dwUserDefinedWindowStylesConfig = 0;
 DWORD GameWindow::m_dwUserDefinedExWindowStylesConfig = 0;
-std::optional<LRESULT> (*GameWindow::m_pUserDefinedWindowProcConfig)(HWND, UINT, WPARAM, LPARAM) = nullptr;
 InputManager& GameWindow::m_InputManager = InputManager::GetSingleton();
 unsigned short GameWindow::m_nWindowCount = 0;
 
@@ -248,11 +265,6 @@ GameWindow::GameWindow(
 	if (m_dwUserDefinedExWindowStylesConfig != 0) {
 		m_dwExWindowStyles = m_dwUserDefinedExWindowStylesConfig;
 		m_dwUserDefinedExWindowStylesConfig = 0;
-	}
-
-	if (m_pUserDefinedWindowProcConfig != nullptr) {
-		m_pUserDefinedWindowProc = m_pUserDefinedWindowProcConfig;
-		m_pUserDefinedWindowProcConfig = nullptr;
 	}
 
 
@@ -324,6 +336,14 @@ std::optional<int> GameWindow::ProcessMessages()
 }
 
 GameWindow::~GameWindow() {}
+
+const void GameWindow::AddUserDefinedPostWindowProc(const std::optional<LRESULT>(*pUserDefinedPostWndProc)(HWND, UINT, WPARAM, LPARAM)) {
+	m_vecUserDefinedPostWndProcs.push_back(pUserDefinedPostWndProc);
+}
+
+const void GameWindow::AddUserDefinedPreWindowProc(const std::optional<LRESULT>(*pUserDefinedPreWndProc)(HWND, UINT, WPARAM, LPARAM)) {
+	m_vecUserDefinedPreWndProcs.push_back(pUserDefinedPreWndProc);
+}
 
 
 

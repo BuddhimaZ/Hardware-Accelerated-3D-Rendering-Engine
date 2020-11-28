@@ -2,7 +2,7 @@
 #define GAMEWINDOW_H
 
 
-//Windows INcludes
+//Windows Includes
 #include "WindowsInclude.h" //Include windows include
 
 //Local Includes
@@ -149,10 +149,9 @@ public:
 	constexpr static void SetWindowExStyles(const DWORD& dwExStyles) {
 		m_dwUserDefinedExWindowStylesConfig = dwExStyles;
 	}
+	const void AddUserDefinedPostWindowProc(const std::optional<LRESULT>(*pUserDefinedPostWndProc) (HWND, UINT, WPARAM, LPARAM));
 
-	constexpr static void SetUserDefinedWndProc(std::optional<LRESULT>(* const& m_pWndProc)(HWND, UINT, WPARAM, LPARAM)) {
-		m_pUserDefinedWindowProcConfig = m_pWndProc;
-	}
+	const void AddUserDefinedPreWindowProc(const std::optional<LRESULT>(*pUserDefinedPreWndProc) (HWND, UINT, WPARAM, LPARAM));
 
 private:
 	// Handle to the created window
@@ -183,14 +182,18 @@ private:
 	//A refference to the WindowClass class
 	WindowClass& m_wndCls;
 
-	//Custom user defined window proc
-	std::optional<LRESULT>(*m_pUserDefinedWindowProc) (HWND, UINT, WPARAM, LPARAM) = nullptr;
+	//Custom user defined post window proc
+	std::vector<const std::optional<LRESULT>(*)(HWND, UINT, WPARAM, LPARAM)> m_vecUserDefinedPostWndProcs = {};
+	//const std::optional<LRESULT>(*m_pUserDefinedPostWndProc) (HWND, UINT, WPARAM, LPARAM) = nullptr;
+	
+	//Custon user defined pre window proc
+	std::vector<const std::optional<LRESULT>(*)(HWND, UINT, WPARAM, LPARAM)> m_vecUserDefinedPreWndProcs = {};
+	//const std::optional<LRESULT>(*m_pUserDefinedPreWndProc) (HWND, UINT, WPARAM, LPARAM) = nullptr;
 
 private:
 	//Window configuration variables
 	static DWORD m_dwUserDefinedWindowStylesConfig;
 	static DWORD m_dwUserDefinedExWindowStylesConfig;
-	static std::optional<LRESULT>(*m_pUserDefinedWindowProcConfig) (HWND, UINT, WPARAM, LPARAM);
 
 	//A static reference to Input manager singleton
 	static InputManager& m_InputManager;
