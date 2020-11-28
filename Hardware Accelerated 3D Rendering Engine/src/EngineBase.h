@@ -66,7 +66,7 @@ protected:
 
 private:
 	void EngineThread();
-	static std::optional<LRESULT> EngineWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+	static const std::optional<LRESULT> EngineWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 private:
 	int32_t m_nWndWidth = 800; // Width of the game window (in pixels)

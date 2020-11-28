@@ -30,11 +30,9 @@ EngineBase::EngineBase(
 int EngineBase::Run() {
 	//Try creating a GameWindow
 	try {
-		//Set SetUserDefinedWndProc to EngineWndProc
-		GameWindow::SetUserDefinedWndProc(EngineWndProc);
-
 		//Create a GameWindow Object
 		m_ptrWnd = new GameWindow(m_sAppName, m_nWndWidth, m_nWndHeight);
+		m_ptrWnd->AddUserDefinedPostWindowProc(EngineWndProc);
 	}
 
 	// See if the exception is a GeneralException
@@ -176,7 +174,7 @@ void EngineBase::EngineThread() {
 	return;
 }
 
-std::optional<LRESULT> EngineBase::EngineWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+const std::optional<LRESULT> EngineBase::EngineWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
 	{
