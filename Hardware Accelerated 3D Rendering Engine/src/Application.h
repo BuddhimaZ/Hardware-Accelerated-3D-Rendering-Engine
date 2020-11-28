@@ -25,6 +25,8 @@ private:
 private:
 	std::unordered_map<std::string, Drawable*> m_drawables;
 	Camera* m_pCamera = nullptr;
+	
+	static const std::optional<LRESULT> imguiWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 };
 
 #endif // !APPLICATION_H

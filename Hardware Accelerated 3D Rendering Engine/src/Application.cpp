@@ -4,6 +4,10 @@
 #include <DirectXMath.h>
 
 bool Application::OnStart() {
+
+	//Add dear ImGui Wnd proc to the window's pre wnd proc vector
+	GetWindow()->AddUserDefinedPreWindowProc(imguiWndProc);
+
 	using namespace DirectX;
 
 	//Initialize the camera
@@ -115,4 +119,9 @@ bool Application::OnDestroy()
 	for (const std::pair<std::string, Drawable*>& drawablePair : m_drawables)
 		if (drawablePair.second) delete drawablePair.second;
 	return true;
+}
+
+const std::optional<LRESULT> Application::imguiWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+	return {};
 }
