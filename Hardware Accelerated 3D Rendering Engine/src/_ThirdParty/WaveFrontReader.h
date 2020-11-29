@@ -13,7 +13,7 @@
 
 #pragma once
 
-#include "../src/WindowsInclude.h"
+#include "../WindowsInclude.h"
 
 #include <algorithm>
 #include <cstdint>
