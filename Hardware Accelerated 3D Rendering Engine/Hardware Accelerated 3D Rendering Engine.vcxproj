@@ -210,6 +210,9 @@ XCOPY "$(ProjectDir)_ThirdParty\bins\$(Configuration)\x64" "$(OutDir)" /Y /F
     <ClCompile Include="src\DrawableSystem\Skull.cpp" />
     <ClCompile Include="src\DrawableSystem\Triangle.cpp" />
     <ClCompile Include="src\DXGIInfoManager.cpp" />
+    <ClCompile Include="src\ECS\Component.cpp" />
+    <ClCompile Include="src\ECS\Entity.cpp" />
+    <ClCompile Include="src\ECS\TransformComponent.cpp" />
     <ClCompile Include="src\Exceptions.cpp" />
     <ClCompile Include="src\GameWindow.cpp" />
     <ClCompile Include="src\GdiPlusManager.cpp" />
@@ -228,12 +231,6 @@ XCOPY "$(ProjectDir)_ThirdParty\bins\$(Configuration)\x64" "$(OutDir)" /Y /F
     <ClCompile Include="src\_ThirdParty\imgui\imgui_impl_dx11.cpp" />
     <ClCompile Include="src\_ThirdParty\imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="src\_ThirdParty\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="ThirdParty\includes\imgui\imgui_impl_dx11.cpp" />
-    <ClCompile Include="ThirdParty\includes\imgui\imgui_impl_win32.cpp" />
-    <ClCompile Include="ThirdParty\includes\imgui\imgui.cpp" />
-    <ClCompile Include="ThirdParty\includes\imgui\imgui_demo.cpp" />
-    <ClCompile Include="ThirdParty\includes\imgui\imgui_draw.cpp" />
-    <ClCompile Include="ThirdParty\includes\imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h" />
@@ -262,6 +259,9 @@ XCOPY "$(ProjectDir)_ThirdParty\bins\$(Configuration)\x64" "$(OutDir)" /Y /F
     <ClInclude Include="src\DrawableSystem\Triangle.h" />
     <ClInclude Include="src\DrawTriangle.h" />
     <ClInclude Include="src\DXGIInfoManager.h" />
+    <ClInclude Include="src\ECS\Component.h" />
+    <ClInclude Include="src\ECS\Entity.h" />
+    <ClInclude Include="src\ECS\TransformComponent.h" />
     <ClInclude Include="src\Exceptions.h" />
     <ClInclude Include="src\GameWindow.h" />
     <ClInclude Include="src\GdiPlusManager.h" />
