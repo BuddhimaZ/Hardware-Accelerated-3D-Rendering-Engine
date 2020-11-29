@@ -260,6 +260,7 @@ XCOPY "$(ProjectDir)_ThirdParty\bins\$(Configuration)\x64" "$(OutDir)" /Y /F
     <ClInclude Include="src\DrawTriangle.h" />
     <ClInclude Include="src\DXGIInfoManager.h" />
     <ClInclude Include="src\ECS\Component.h" />
+    <ClInclude Include="src\ECS\ECS.h" />
     <ClInclude Include="src\ECS\Entity.h" />
     <ClInclude Include="src\ECS\TransformComponent.h" />
     <ClInclude Include="src\Exceptions.h" />
