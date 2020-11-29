@@ -12,10 +12,19 @@
 //	demo.Run();
 //}
 
-#include "Application.h"
+//#include "Application.h"
+//
+//int main() {
+//	Application app("Hardware Accelarated 3D Renderer", 800, 600);
+//	app.Run();
+//	return 0;
+//}
+
+#include <iostream>
+#include "CrappyECS/CrappyECS.h"
 
 int main() {
-	Application app("Hardware Accelarated 3D Renderer", 800, 600);
-	app.Run();
-	return 0;
+	CrappyEntity crap(nullptr, "Hello");
+	crap["DD"]["dsf"];
+	std::cin.get();
 }
