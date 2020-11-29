@@ -129,13 +129,16 @@
     <ClCompile Include="src\_ThirdParty\imgui\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ECS\Component.cpp">
+    <ClCompile Include="src\CrappyECS\Components\CrappyComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ECS\Entity.cpp">
+    <ClCompile Include="src\CrappyECS\Components\TestComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ECS\TransformComponent.cpp">
+    <ClCompile Include="src\CrappyECS\Components\TransformComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CrappyECS\Entity\CrappyEntity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -767,16 +770,19 @@
     <ClInclude Include="_ThirdParty\WaveFrontReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ECS\Component.h">
+    <ClInclude Include="src\CrappyECS\Components\CrappyComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ECS\Entity.h">
+    <ClInclude Include="src\CrappyECS\Components\TestComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ECS\TransformComponent.h">
+    <ClInclude Include="src\CrappyECS\CrappyECS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ECS\ECS.h">
+    <ClInclude Include="src\CrappyECS\Components\TransformComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CrappyECS\Entity\CrappyEntity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
