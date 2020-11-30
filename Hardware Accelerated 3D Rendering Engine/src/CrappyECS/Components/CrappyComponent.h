@@ -4,6 +4,7 @@
 //Local Includes
 #include "../Entity/CrappyEntity.h"
 #include "../BindableSystem/BindableSystem.h"
+#include "../InputManager.h"
 
 //Standard Includes
 #include <string>
@@ -22,6 +23,9 @@ public:
 	const void AddBindable(Bindable* pBindable);
 	const void Bind() const;
 	const Renderer* GetRenderer() const;
+
+protected:
+	const InputManager& Input;
 
 private:
 	const CrappyEntity* m_pOwner = nullptr;

@@ -3,7 +3,8 @@
 CrappyComponent::CrappyComponent(
 	const CrappyEntity* pOwner
 ) :
-	m_pOwner(pOwner)
+	m_pOwner(pOwner),
+	Input(InputManager::GetSingleton())
 {
 }
 
