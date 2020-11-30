@@ -7,6 +7,7 @@
 
 
 #include "ShittyCameraComponent.h"
+#include "../GraphicsExceptionMacros.h"
 
 //Standard Includes
 #include <cstdint>
@@ -96,9 +97,9 @@ void ShittyMeshComponent::OnUpdate(const float& dt)
 
 	for (const auto& pCameraComp : ShittyCameraComponent::SceneCameras) {
 		pCameraComp.second->Bind();
-		m_pVSConstBuf->GetBuffer() = m_transform.GetXMTransformMatrix() * pCameraComp.second->GetXMCameraMatrix();
+		m_pVSConstBuf->GetBuffer() = XMMatrixTranspose(m_transform.GetXMTransformMatrix() * pCameraComp.second->GetXMCameraMatrix());
 		m_pVSConstBuf->Update();
-		GetRenderer()->GetContext()->DrawIndexed((UINT)(m_pIndexBuffer->GetElementCount()), 0, 0);
+		GFX_THROW_EXCEPT_INFO_ONLY( GetRenderer()->GetContext()->DrawIndexed((UINT)(m_pIndexBuffer->GetElementCount()), 0, 0));
 	}
 	
 }
