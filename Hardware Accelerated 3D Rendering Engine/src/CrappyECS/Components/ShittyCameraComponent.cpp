@@ -47,6 +47,7 @@ const DirectX::XMMATRIX ShittyCameraComponent::GetXMCameraMatrix() const
 		XMMatrixTranslationFromVector(-XMLoadFloat3(&pos))*
 		XMMatrixRotationY(-rot.y)*
 		XMMatrixRotationX(-rot.x)*
-		XMMatrixRotationZ(-rot.z)
+		XMMatrixRotationZ(-rot.z)*
+		m_xmmatProjectionMatrix
 		;
 }
