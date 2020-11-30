@@ -44,7 +44,7 @@ public:
 		const std::string& name,
 		const DirectX::XMFLOAT3& pos,
 		const DirectX::XMFLOAT3& rot,
-		const DirectX::XMFLOAT3& scale
+		const DirectX::XMFLOAT3& scale = DirectX::XMFLOAT3(1.0f, 1.0f, 1.0f)
 	);
 
 	// Get the child entity of this entity by name
@@ -130,7 +130,7 @@ public:
 		const std::string& name, 
 		const DirectX::XMFLOAT3& pos,
 		const DirectX::XMFLOAT3& rot, 
-		const DirectX::XMFLOAT3& scale
+		const DirectX::XMFLOAT3& scale = DirectX::XMFLOAT3(1.0f, 1.0f, 1.0f)
 		);
 
 	template<class T, class... _Types>
