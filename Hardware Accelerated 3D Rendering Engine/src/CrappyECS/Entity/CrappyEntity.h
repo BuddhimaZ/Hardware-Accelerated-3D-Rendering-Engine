@@ -32,6 +32,9 @@ public:
 	);
 	~CrappyEntity();
 
+	//Get the name of the Entity
+	const std::string& GetName() const;
+
 	// Add a new child enity to the current entity
 	// If a child exist with the given name this function
 	// will return a pointer to the already existing child
@@ -132,7 +135,7 @@ public:
 
 	template<class T, class... _Types>
 	T& operator() (_Types&&... args) {
-		return *(AddComponent<T>(args));
+		return *(AddComponent<T>(args...));
 	}
 
 	template<class T>
@@ -140,12 +143,22 @@ public:
 		return *(AddComponent<T>());
 	}
 
+public:
+
+	//Call this function to initialize all the components in this entity and children
+	const void OnStart() const;
+
+	//Call this function to update all the components in this entity and children
+	const void OnUpdate(const float& dt) const;
+
+protected:
+	std::unordered_map<std::string, CrappyEntity*> m_pChildren = {};
+	const Renderer* m_pRenderer = nullptr;
 private:
 	const std::string m_sName;
 	const CrappyEntity* m_pParent = nullptr;
-	std::unordered_map<std::string, CrappyEntity*> m_pChildren = {};
 	std::unordered_map<std::string, CrappyComponent*> m_pComponents = {};
-	const Renderer* m_pRenderer = nullptr;
+	
 };
 
 #endif // !CRAPPYENTITY_H

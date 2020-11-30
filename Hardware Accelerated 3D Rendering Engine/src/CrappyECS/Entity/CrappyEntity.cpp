@@ -39,6 +39,11 @@ CrappyEntity::~CrappyEntity()
 	}
 }
 
+const std::string& CrappyEntity::GetName() const
+{
+	return m_sName;
+}
+
 // Add a new child enity to the current entity
 // If a child exist with the given name this function
 // will return a pointer to the already existing child
@@ -71,6 +76,7 @@ CrappyEntity* CrappyEntity::AddChild(const std::string& name, const DirectX::XMF
 	return pChild;
 }
 
+
 // Get the child entity of this entity by name
 // Returns a pointer to the child entity if a child
 // by the given name exists.
@@ -94,24 +100,6 @@ const CrappyEntity* CrappyEntity::GetParent() const
 }
 
 
-// Get the Component entity of this entity by name
-// Returns a pointer to the Component entity if a child
-// by the given name exists.
-// Otherwise returns nullptr
-
-//CrappyComponent* CrappyEntity::GetComponent(const std::string& type) const
-//{
-//	auto it = m_pComponents.find(type);
-//
-//	if (it == m_pComponents.end()) {
-//		//There's no component by the given name
-//		return nullptr;
-//	}
-//
-//	//Otherwise return the pointer to the component
-//	return it->second;
-//}
-
 CrappyEntity& CrappyEntity::operator[](const std::string& name)
 {
 	return *(AddChild(name));
@@ -122,7 +110,28 @@ CrappyEntity& CrappyEntity::operator()(const std::string& name, const DirectX::X
 	return *(AddChild(name, pos, rot, scale));
 }
 
-//CrappyComponent& CrappyEntity::operator()(const std::string& type)
-//{
-//	return *(AddComponent(type));
-//}
+const void CrappyEntity::OnStart() const
+{
+	//First call the OnStart() function of Our own components
+	for (auto& pComp : m_pComponents) {
+		pComp.second->OnStart();
+	}
+
+	//Then call the OnStart() function of children entities
+	for (auto& pChild : m_pChildren) {
+		pChild.second->OnStart();
+	}
+}
+
+const void CrappyEntity::OnUpdate(const float& dt) const
+{
+	//First call the OnUpdate() function of Our own components
+	for (auto& pComp : m_pComponents) {
+		pComp.second->OnUpdate(dt);
+	}
+
+	//Then call the OnUpdate() function of children entities
+	for (auto& pChild : m_pChildren) {
+		pChild.second->OnUpdate(dt);
+	}
+}
