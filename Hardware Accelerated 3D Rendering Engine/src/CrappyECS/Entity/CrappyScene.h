@@ -6,6 +6,7 @@
 
 class CrappyScene : public CrappyEntity {
 public:
+	CrappyScene(const Renderer* pRenderer);
 	CrappyScene();
 	const void SetRenderer(const Renderer* pRenderer);
 

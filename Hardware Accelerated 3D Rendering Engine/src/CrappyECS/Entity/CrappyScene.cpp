@@ -1,6 +1,11 @@
 #include "CrappyScene.h"
 
-CrappyScene::CrappyScene() : CrappyEntity(nullptr, "Scene")
+CrappyScene::CrappyScene(const Renderer* pRenderer) : CrappyEntity(nullptr, "Scene")
+{
+	m_pRenderer = pRenderer;
+}
+
+CrappyScene::CrappyScene() : CrappyScene(nullptr)
 {
 }
 
