@@ -205,6 +205,7 @@ XCOPY "$(ProjectDir)_ThirdParty\bins\$(Configuration)\x64" "$(OutDir)" /Y /F
     <ClCompile Include="src\BindableSystem\Viewports.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\CrappyECSTrial.cpp" />
+    <ClCompile Include="src\CrappyECS\Components\CameraController.cpp" />
     <ClCompile Include="src\CrappyECS\Components\ShittyCameraComponent.cpp" />
     <ClCompile Include="src\CrappyECS\Components\ShittyMeshComponent.cpp" />
     <ClCompile Include="src\CrappyECS\Components\TransformComponent.cpp" />
@@ -259,6 +260,7 @@ XCOPY "$(ProjectDir)_ThirdParty\bins\$(Configuration)\x64" "$(OutDir)" /Y /F
     <ClInclude Include="src\BindableSystem\VSConstantBuffer.h" />
     <ClInclude Include="src\BindableTesting.h" />
     <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="src\CrappyECS\Components\CameraController.h" />
     <ClInclude Include="src\CrappyECS\Components\ShittyCameraComponent.h" />
     <ClInclude Include="src\CrappyECS\Components\CrappyComponent.h" />
     <ClInclude Include="src\CrappyECS\Components\ShittyMeshComponent.h" />

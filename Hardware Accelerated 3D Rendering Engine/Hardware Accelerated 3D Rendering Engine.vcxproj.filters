@@ -159,6 +159,9 @@
     <ClCompile Include="src\CrappyECSTrial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\CrappyECS\Components\CameraController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXGIInfoManager.h">
@@ -819,6 +822,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\CrappyECSTrial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CrappyECS\Components\CameraController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
