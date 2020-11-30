@@ -14,5 +14,6 @@
 #include "Components/TransformComponent.h"
 #include "Components/ShittyCameraComponent.h"
 #include "Components/ShittyMeshComponent.h"
+#include "Components/CameraController.h"
 
 #endif // !CRAPPYECS_H
