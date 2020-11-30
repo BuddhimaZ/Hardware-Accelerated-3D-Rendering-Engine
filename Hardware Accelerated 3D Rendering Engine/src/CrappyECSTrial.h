@@ -12,9 +12,11 @@ public:
 private:
 	bool OnStart() override;
 	bool OnUpdate(float dt) override;
+	bool OnDestroy() override;
 
 private:
-	CrappyScene Scene;
+	CrappyScene* pScene = nullptr;
+
 };
 
 #endif // !CRAPPYECSTRIAL_H
