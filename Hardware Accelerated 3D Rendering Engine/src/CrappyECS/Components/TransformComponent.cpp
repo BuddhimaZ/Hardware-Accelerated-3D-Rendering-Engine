@@ -82,8 +82,8 @@ const DirectX::XMMATRIX TransformComponent::GetXMTransformMatrix() const
 {
 	using namespace DirectX;
 	return 
-		XMMatrixTranslationFromVector(XMLoadFloat3(&m_xmf3RealPosition)) *
+		XMMatrixScalingFromVector(XMLoadFloat3(&m_xmf3RealScale)) *
 		XMMatrixRotationRollPitchYawFromVector(XMLoadFloat3(&m_xmf3RealRotation)) *
-		XMMatrixScalingFromVector(XMLoadFloat3(&m_xmf3RealScale))
+		XMMatrixTranslationFromVector(XMLoadFloat3(&m_xmf3RealPosition)) 
 		;
 }
