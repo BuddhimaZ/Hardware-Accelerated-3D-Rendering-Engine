@@ -18,6 +18,8 @@ bool CrappyECSTrial::OnStart()
 
     //Add a Cube model to the scene
     Scene.operator()("Cube", XMFLOAT3(5.0f, 0.0f, 4.0f), XMFLOAT3(0.0f, -XM_PIDIV2, XM_PI)).operator() < ShittyMeshComponent > ("Models/Cube.obj", std::wstring(L"Models/Cube.png"));
+    Scene["Cube"].operator() < CubeRotator > ();
+
 
     //Add a skull model to the scene
     Scene.operator()("Skull", XMFLOAT3(0.0f, -10.0f, 50.0f), XMFLOAT3(0.0f, 0.0f, 0.0f)).operator()<ShittyMeshComponent>("Models/12140_Skull_v3_L2.obj", std::wstring(L"Models/Skull.jpg"));
