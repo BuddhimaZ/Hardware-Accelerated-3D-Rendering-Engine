@@ -205,14 +205,14 @@ XCOPY "$(ProjectDir)_ThirdParty\bins\$(Configuration)\x64" "$(OutDir)" /Y /F
     <ClCompile Include="src\BindableSystem\Viewports.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\CrappyECSTrial.cpp" />
-    <ClCompile Include="src\CrappyECS\Components\CameraController.cpp" />
+    <ClCompile Include="src\CrappyECS\Scripts\CameraController.cpp" />
     <ClCompile Include="src\CrappyECS\Components\ShittyCameraComponent.cpp" />
     <ClCompile Include="src\CrappyECS\Components\ShittyMeshComponent.cpp" />
     <ClCompile Include="src\CrappyECS\Components\TransformComponent.cpp" />
     <ClCompile Include="src\CrappyECS\Entity\CrappyEntity.cpp" />
     <ClCompile Include="src\CrappyECS\Components\CrappyComponent.cpp" />
-    <ClCompile Include="src\CrappyECS\Components\TestComponent.cpp" />
     <ClCompile Include="src\CrappyECS\Entity\CrappyScene.cpp" />
+    <ClCompile Include="src\CrappyECS\Scripts\CubeRotator.cpp" />
     <ClCompile Include="src\D3DIncludes.cpp" />
     <ClCompile Include="src\DrawableSystem\Box.cpp" />
     <ClCompile Include="src\DrawableSystem\BoxWithTexture.cpp" />
@@ -260,7 +260,8 @@ XCOPY "$(ProjectDir)_ThirdParty\bins\$(Configuration)\x64" "$(OutDir)" /Y /F
     <ClInclude Include="src\BindableSystem\VSConstantBuffer.h" />
     <ClInclude Include="src\BindableTesting.h" />
     <ClInclude Include="src\Camera.h" />
-    <ClInclude Include="src\CrappyECS\Components\CameraController.h" />
+    <ClInclude Include="src\CrappyECS\Components\Components.h" />
+    <ClInclude Include="src\CrappyECS\Scripts\CameraController.h" />
     <ClInclude Include="src\CrappyECS\Components\ShittyCameraComponent.h" />
     <ClInclude Include="src\CrappyECS\Components\CrappyComponent.h" />
     <ClInclude Include="src\CrappyECS\Components\ShittyMeshComponent.h" />
@@ -268,8 +269,9 @@ XCOPY "$(ProjectDir)_ThirdParty\bins\$(Configuration)\x64" "$(OutDir)" /Y /F
     <ClInclude Include="src\CrappyECS\CrappyECS.h" />
     <ClInclude Include="src\CrappyECSTrial.h" />
     <ClInclude Include="src\CrappyECS\Entity\CrappyEntity.h" />
-    <ClInclude Include="src\CrappyECS\Components\TestComponent.h" />
     <ClInclude Include="src\CrappyECS\Entity\CrappyScene.h" />
+    <ClInclude Include="src\CrappyECS\Scripts\CubeRotator.h" />
+    <ClInclude Include="src\CrappyECS\Scripts\Scripts.h" />
     <ClInclude Include="src\D3DIncludes.h" />
     <ClInclude Include="src\DrawableSystem\Box.h" />
     <ClInclude Include="src\DrawableSystem\BoxWithTexture.h" />

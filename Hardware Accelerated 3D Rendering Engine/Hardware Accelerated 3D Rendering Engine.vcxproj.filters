@@ -132,9 +132,6 @@
     <ClCompile Include="src\CrappyECS\Components\CrappyComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\CrappyECS\Components\TestComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\CrappyECS\Components\TransformComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -159,7 +156,10 @@
     <ClCompile Include="src\CrappyECSTrial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\CrappyECS\Components\CameraController.cpp">
+    <ClCompile Include="src\CrappyECS\Scripts\CameraController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CrappyECS\Scripts\CubeRotator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -791,9 +791,6 @@
     <ClInclude Include="_ThirdParty\WaveFrontReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\CrappyECS\Components\TestComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\CrappyECS\CrappyECS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -824,7 +821,16 @@
     <ClInclude Include="src\CrappyECSTrial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\CrappyECS\Components\CameraController.h">
+    <ClInclude Include="src\CrappyECS\Scripts\CameraController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CrappyECS\Components\Components.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CrappyECS\Scripts\Scripts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CrappyECS\Scripts\CubeRotator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,13 +7,9 @@
 //Scene
 #include "Entity/CrappyScene.h"
 
-//Base Component
-#include "Components/CrappyComponent.h"
+#include "Components/Components.h"
 
-//All the components
-#include "Components/TransformComponent.h"
-#include "Components/ShittyCameraComponent.h"
-#include "Components/ShittyMeshComponent.h"
-#include "Components/CameraController.h"
+//User defined Scripts
+#include "Scripts/Scripts.h"
 
 #endif // !CRAPPYECS_H

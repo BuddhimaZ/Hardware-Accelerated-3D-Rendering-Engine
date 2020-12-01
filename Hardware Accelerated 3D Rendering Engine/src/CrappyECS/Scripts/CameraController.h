@@ -1,8 +1,7 @@
 #ifndef CAMERACONTROLLER_H
 #define CAMERACONTROLLER_H
 
-#include "CrappyComponent.h"
-#include "TransformComponent.h"
+#include "../Components/Components.h"
 
 #include <DirectXMath.h>
 
